@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>O que é JavaScript?</title>
+</head>
+<body>
+
+    <h1 id="titulo">O que é JavaScript?</h1>
+
+    <p id="explicacao">
+        JavaScript foi criado para adicionar interatividade às páginas web.
+        No navegador, executa códigos na página. No servidor, pode executar
+        operações no backend através do Node.js.
+        O sandbox é um ambiente de segurança que limita o acesso do código.
+        document manipula a página, console registra mensagens e alert exibe avisos.
+    </p>
+
+    <p id="hora"></p>
+
+    <script>
+        console.log("JavaScript funcionando!");
+
+        alert("Olá! Seja bem-vindo!");
+
+        document.getElementById("hora").innerHTML =
+            "Hora atual: " + new Date().toLocaleTimeString();
+    </script>
+
+</body>
+</html>

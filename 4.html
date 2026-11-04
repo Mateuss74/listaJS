@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora IMC</title>
+</head>
+<body>
+
+    <h1>Calculadora de IMC</h1>
+
+    <input type="text" id="nome" placeholder="Nome">
+    <input type="number" id="peso" placeholder="Peso (kg)" step="0.1">
+    <input type="number" id="altura" placeholder="Altura (m)" step="0.01">
+
+    <button onclick="calcular()">Calcular</button>
+
+    <p id="resultadoIMC"></p>
+    <p id="classificacao"></p>
+
+    <img id="imgPerfil" width="150">
+
+    <script>
+        function calcular() {
+
+            let nome = document.getElementById("nome").value;
+            let peso = parseFloat(document.getElementById("peso").value);
+            let altura = parseFloat(document.getElementById("altura").value);
+
+            if (nome == "" || isNaN(peso) || isNaN(altura) ||
+                peso <= 0 || altura <= 0) {
+                alert("Preencha todos os campos corretamente!");
+                return;
+            }
+
+            let imc = peso / (altura * altura);
+            let classificacao = "";
+
+            if (imc < 18.5) {
+                classificacao = "Abaixo do peso";
+            } else if (imc < 25) {
+                classificacao = "Peso normal";
+            } else if (imc < 30) {
+                classificacao = "Sobrepeso";
+            } else if (imc < 35) {
+                classificacao = "Obesidade grau 1";
+            } else if (imc < 40) {
+                classificacao = "Obesidade grau 2";
+            } else {
+                classificacao = "Obesidade grau 3";
+            }
+
+            document.getElementById("resultadoIMC").innerText =
+                "IMC: " + imc.toFixed(2);
+
+            document.getElementById("classificacao").innerText =
+                classificacao;
+
+            let faixa = Math.floor(imc);
+            let imagem = "";
+
+            switch (true) {
+                case (faixa < 18):
+                    imagem = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVzTD36nK3bn-RdJz-aENSy7l-HxsDbg9DihzAUVQNodVBWLo5DHDtDUec&s=10";
+                    break;
+
+                case (faixa < 25):
+                    imagem = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3isf8OE0hYCEZ4NFkN_7rORFg3RG5c7XHrBa1dOROtw&s=10";
+                    break;
+
+                case (faixa < 30):
+                    imagem = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv7XBe3ggCpmMWy31TjPj441A2oJKpbGRp7liE3zB8aA&s=10";
+                    break;
+
+                default:
+                    imagem = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1f07Tnno_w2k_W9Paem3ZmcIcnlOZ1fnds3884WDkEA&s=10";
+            }
+
+            document.getElementById("imgPerfil").src = imagem;
+        }
+    </script>
+
+</body>
+</html>

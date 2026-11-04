@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Variáveis e Operadores</title>
+</head>
+<body>
+
+    <h1>Tipos de Variáveis</h1>
+
+    <button onclick="mostrarTipos()">Mostrar tipos</button>
+
+    <p id="pstring"></p>
+    <p id="pnumero"></p>
+    <p id="pboolean"></p>
+    <p id="pundefined"></p>
+    <p id="pnull"></p>
+    <p id="pobject"></p>
+    <p id="parray"></p>
+
+    <h2>Operações</h2>
+    <p id="operacoes"></p>
+
+    <script>
+        function mostrarTipos() {
+
+            let nome = "João";
+            let numero = 10;
+            let ativo = true;
+            let indefinido;
+            let vazio = null;
+            let pessoa = {nome: "João"};
+            let numeros = [1, 2, 3];
+
+            document.getElementById("pstring").innerText =
+                "String: " + typeof nome;
+
+            document.getElementById("pnumero").innerText =
+                "Number: " + typeof numero;
+
+            document.getElementById("pboolean").innerText =
+                "Boolean: " + typeof ativo;
+
+            document.getElementById("pundefined").innerText =
+                "Undefined: " + typeof indefinido;
+
+            document.getElementById("pnull").innerText =
+                "Null: " + typeof vazio;
+
+            document.getElementById("pobject").innerText =
+                "Object: " + typeof pessoa;
+
+            document.getElementById("parray").innerText =
+                "Array: " + typeof numeros;
+
+            let resultado1 = "10" + 5;
+            let resultado2 = true * 10;
+
+            console.log("String + Number:", resultado1);
+            console.log("Boolean * Number:", resultado2);
+
+            document.getElementById("operacoes").innerText =
+                "10 + 5 = " + resultado1 +
+                " (concatenação de texto)\n" +
+                "true * 10 = " + resultado2 +
+                " (true equivale a 1)";
+        }
+    </script>
+
+</body>
+</html>

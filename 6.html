@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Números Primos</title>
+</head>
+<body>
+
+    <h1>Números Primos</h1>
+
+    <input type="number" id="inicio" placeholder="Início">
+    <input type="number" id="fim" placeholder="Fim">
+
+    <button onclick="verificar()">Verificar</button>
+
+    <div id="resultadoPrimos"></div>
+
+    <script>
+        function ehPrimo(n) {
+
+            if (n < 2) {
+                return false;
+            }
+
+            for (let i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i == 0) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        function verificar() {
+
+            let inicio = parseInt(document.getElementById("inicio").value);
+            let fim = parseInt(document.getElementById("fim").value);
+
+            if (isNaN(inicio) || isNaN(fim)) {
+                alert("Preencha os dois campos!");
+                return;
+            }
+
+            if (inicio > fim) {
+                let aux = inicio;
+                inicio = fim;
+                fim = aux;
+            }
+
+            let resultado = [];
+
+            for (let i = inicio; i <= fim; i++) {
+                if (ehPrimo(i)) {
+                    resultado.push(i);
+                }
+            }
+
+            document.getElementById("resultadoPrimos").innerText =
+                "Números primos: " + resultado.join(", ");
+        }
+    </script>
+
+</body>
+</html>

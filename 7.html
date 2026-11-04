@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Palíndromos</title>
+</head>
+<body>
+
+    <h1>Verificador de Palíndromos</h1>
+
+    <input type="text" id="palavra" placeholder="Digite uma palavra">
+
+    <button onclick="verificar()">Verificar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function verificar() {
+
+            let palavra = document.getElementById("palavra").value.toLowerCase();
+
+            let invertida = palavra.split("").reverse().join("");
+
+            if (palavra == "") {
+                alert("Digite uma palavra!");
+                return;
+            }
+
+            if (palavra == invertida) {
+                document.getElementById("resultado").innerText =
+                    "É um palíndromo!";
+            } else {
+                document.getElementById("resultado").innerText =
+                    "Não é um palíndromo!";
+            }
+        }
+    </script>
+
+</body>
+</html>
