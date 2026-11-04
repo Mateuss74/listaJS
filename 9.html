@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alterar Cores</title>
+</head>
+<body>
+
+    <h1>Pressione ESPAÇO para mudar as cores</h1>
+
+    <p id="texto">JavaScript - PPI</p>
+
+    <button id="botao">Botão de exemplo</button>
+
+    <script>
+        document.addEventListener("keydown", function(event) {
+
+            if (event.code == "Space") {
+
+                let cor1 = "#" + Math.floor(Math.random() * 16777215)
+                    .toString(16).padStart(6, "0");
+
+                let cor2 = "#" + Math.floor(Math.random() * 16777215)
+                    .toString(16).padStart(6, "0");
+
+                document.body.style.backgroundColor = cor1;
+
+                document.getElementById("texto").style.color = cor2;
+
+                document.getElementById("botao").style.backgroundColor = cor2;
+            }
+        });
+    </script>
+
+</body>
+</html>

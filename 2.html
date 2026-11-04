@@ -1,70 +1,182 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
+
 <head>
-    <title>Variáveis e Operadores</title>
+    <meta charset="UTF-8">
+    <title>Tipos de Variáveis e Operadores</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            padding: 30px;
+        }
+
+        h1, h2 {
+            color: #263b5e;
+        }
+
+        button {
+            background-color: #263b5e;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #405d8b;
+        }
+
+        .resultado {
+            background-color: white;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 8px;
+        }
+
+        p {
+            padding: 5px;
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Tipos de Variáveis</h1>
+    <h1>Tipos de Variáveis e Operadores JavaScript</h1>
 
-    <button onclick="mostrarTipos()">Mostrar tipos</button>
+    <p>
+        Clique no botão abaixo para visualizar os diferentes
+        tipos de variáveis e exemplos de operações em JavaScript.
+    </p>
 
-    <p id="pstring"></p>
-    <p id="pnumero"></p>
-    <p id="pboolean"></p>
-    <p id="pundefined"></p>
-    <p id="pnull"></p>
-    <p id="pobject"></p>
-    <p id="parray"></p>
+    <button onclick="mostrarInformacoes()">
+        Mostrar informações
+    </button>
 
-    <h2>Operações</h2>
-    <p id="operacoes"></p>
+    <div class="resultado">
+
+        <h2>1. Tipos de Variáveis</h2>
+
+        <p id="pstring"></p>
+        <p id="pnumero"></p>
+        <p id="pboolean"></p>
+        <p id="pundefined"></p>
+        <p id="pnull"></p>
+        <p id="pobject"></p>
+        <p id="parray"></p>
+
+    </div>
+
+    <div class="resultado">
+
+        <h2>2. Operações entre diferentes tipos</h2>
+
+        <p id="operacao1"></p>
+        <p id="operacao2"></p>
+        <p id="operacao3"></p>
+        <p id="operacao4"></p>
+        <p id="operacao5"></p>
+        <p id="operacao6"></p>
+
+    </div>
 
     <script>
-        function mostrarTipos() {
 
-            let nome = "João";
-            let numero = 10;
-            let ativo = true;
-            let indefinido;
-            let vazio = null;
-            let pessoa = {nome: "João"};
-            let numeros = [1, 2, 3];
+        function mostrarInformacoes() {
+
+            // DECLARAÇÃO DAS VARIÁVEIS
+
+            let nome = "Carlos";
+            let idade = 18;
+            let aprovado = true;
+            let cidade;
+            let endereco = null;
+            let aluno = {
+                nome: "Carlos",
+                idade: 18
+            };
+            let notas = [8, 9, 7];
+
+            // EXIBIÇÃO DOS TIPOS COM TYPEOF
 
             document.getElementById("pstring").innerText =
-                "String: " + typeof nome;
+                "String: " + nome + " | Tipo: " + typeof nome;
 
             document.getElementById("pnumero").innerText =
-                "Number: " + typeof numero;
+                "Number: " + idade + " | Tipo: " + typeof idade;
 
             document.getElementById("pboolean").innerText =
-                "Boolean: " + typeof ativo;
+                "Boolean: " + aprovado + " | Tipo: " + typeof aprovado;
 
             document.getElementById("pundefined").innerText =
-                "Undefined: " + typeof indefinido;
+                "Undefined: " + cidade + " | Tipo: " + typeof cidade;
 
             document.getElementById("pnull").innerText =
-                "Null: " + typeof vazio;
+                "Null: " + endereco + " | Tipo: " + typeof endereco;
 
             document.getElementById("pobject").innerText =
-                "Object: " + typeof pessoa;
+                "Object: " + JSON.stringify(aluno) +
+                " | Tipo: " + typeof aluno;
 
             document.getElementById("parray").innerText =
-                "Array: " + typeof numeros;
+                "Array: " + notas +
+                " | Tipo: " + typeof notas;
 
-            let resultado1 = "10" + 5;
-            let resultado2 = true * 10;
+            // OPERAÇÕES ENTRE DIFERENTES TIPOS
 
-            console.log("String + Number:", resultado1);
-            console.log("Boolean * Number:", resultado2);
+            let resultado1 = nome + idade;
+            let resultado2 = idade + 10;
+            let resultado3 = aprovado * idade;
+            let resultado4 = "20" - 5;
+            let resultado5 = 10 == "10";
+            let resultado6 = 10 === "10";
 
-            document.getElementById("operacoes").innerText =
-                "10 + 5 = " + resultado1 +
-                " (concatenação de texto)\n" +
-                "true * 10 = " + resultado2 +
-                " (true equivale a 1)";
+            // EXIBIÇÃO DOS RESULTADOS E EXPLICAÇÕES
+
+            document.getElementById("operacao1").innerText =
+                'String + Number: "Carlos" + 18 = ' +
+                resultado1 +
+                " | O JavaScript junta o texto com o número.";
+
+            document.getElementById("operacao2").innerText =
+                "Number + Number: 18 + 10 = " +
+                resultado2 +
+                " | Realiza uma soma matemática.";
+
+            document.getElementById("operacao3").innerText =
+                "Boolean * Number: true * 18 = " +
+                resultado3 +
+                " | O true é convertido em 1.";
+
+            document.getElementById("operacao4").innerText =
+                'String - Number: "20" - 5 = ' +
+                resultado4 +
+                " | O texto numérico é convertido em número.";
+
+            document.getElementById("operacao5").innerText =
+                '10 == "10": ' + resultado5 +
+                " | Compara os valores, permitindo conversão de tipo.";
+
+            document.getElementById("operacao6").innerText =
+                '10 === "10": ' + resultado6 +
+                " | Compara valor e tipo, sem conversão.";
+
+            // REGISTRO DAS OPERAÇÕES NO CONSOLE
+
+            console.log("Resultado 1:", resultado1);
+            console.log("Resultado 2:", resultado2);
+            console.log("Resultado 3:", resultado3);
+            console.log("Resultado 4:", resultado4);
+            console.log("Resultado 5:", resultado5);
+            console.log("Resultado 6:", resultado6);
+
+            console.log("Todas as variáveis foram exibidas!");
         }
+
     </script>
 
 </body>
+
 </html>
